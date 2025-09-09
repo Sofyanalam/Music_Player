@@ -1,0 +1,566 @@
+
+:root{
+    --bg:#0f1724;
+    --card:#0b1220;
+    --muted:#9aa4b2;
+    --accent:#7c3aed;
+    --glass: rgba(255,255,255,0.04);
+  }
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: "Epundu Sans", sans-serif;
+    background:linear-gradient(180deg,#060e20 0%, #0d1a2b 100%);
+    color:#e6eef8;
+    padding-left:200px;
+    padding-right:40px;
+    padding-top:80px;
+    overflow:hidden;
+  }
+.sidebar
+{
+  background:linear-gradient(50deg,rgb(9, 1, 73),#010103);
+  color:white;
+  position:fixed;
+  left:0px;
+  bottom:35px;
+  width:350px;
+  top:0px;
+  box-shadow:0px 0px 10px rgba(4, 4, 6, 0.6);
+  border-radius: 35px;
+}
+.top_sidebar img
+{
+  display:inline-block;
+  width:40px;
+  margin-left:20px;
+  margin-right: 20px;
+  vertical-align:middle;
+  margin-top: 20px;
+  border-radius:30px;
+}
+.top_sidebar .sidebarheading
+{
+  font-size:37px;
+  font-weight:bold;
+  margin-top: 20px;
+  display:inline-block;
+  vertical-align:middle;
+} 
+.music-note{
+  height:100px;
+}
+.sidebar .music-note h4
+{
+  font-size:14px;
+  margin-left: 10px;
+  font-weight:400;
+  color:grey;
+  cursor:pointer;
+  transition:0.1s linear;
+  display:flex;
+  align-items:center;
+}
+.sidebar .music-note h4:hover
+{
+  color:white;
+}
+.sidebar .music-note h4 span
+{
+  position:relative;
+  margin-right:35px;
+}
+.sidebar .music-note h4 span::before
+{
+  content:'';
+  position:absolute;
+  width:4px;
+  height:4px;
+  border:2px solid grey;
+  top:-4px;
+  border-radius:50%;
+  transition:0.3s linear;
+}
+.sidebar .music-note h4:hover span::before
+{
+  border:2px solid white;
+}
+.sidebar .music-note h4 .bi
+{
+  display:none;
+}
+.sidebar .music-note .active
+{
+  color:#36e2ec;
+}
+.sidebar .music-note .active span
+{
+  display:none;
+}
+.sidebar .music-note .active .bi
+{
+  display:flex;
+  margin-right:20px;
+}
+.menu_song 
+{
+  width:100%;
+  height:478px;
+  overflow-y:scroll;
+  scrollbar-width:none;
+  border-radius:10px;
+  box-shadow: inset 0px 0px 10px 8px rgba(54, 58, 75, 0.4);
+}
+.menu_song ::-webkit-scrollbar{
+  display:none;
+}
+.menu_song li
+{
+  list-style-type:none;
+  position:relative;
+  padding:5px 0px 5px 20px;
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+  transition:0.3s linear;
+}
+.menu_song li:hover
+{
+  background:rgba(177, 177, 177, 0.2);
+}
+.menu_song li span
+{
+  font-size:12px;
+  font-weight:600px;
+  color:grey;
+}
+.menu_song li img
+{
+  width:38px;
+  height:38px;
+  margin-left:25px;
+  border-radius:5px;
+}
+.menu_song li h5
+{
+  font-size:11px;
+  margin-left:15px;
+  width:170px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+.menu_song li h5 .subtitle
+{
+  font-size:9px;
+  color:grey;
+}
+.subtitle {
+  display: inline-block;
+  white-space: nowrap;   /* Keep text in one line */
+  overflow: hidden;
+  text-overflow:ellipsis;
+  width: 110px;          /* Adjust based on your design */
+  position: relative;
+}
+
+.menu_song li.active-song .subtitle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;          /* Fading effect width */
+  height: 100%;
+}
+
+.menu_song li.active-song .subtitle span {
+  display: inline-block;
+  padding-left: 100%;   /* Start text from the right */
+  animation: scroll-subtitle 10s linear infinite;
+}
+
+@keyframes scroll-subtitle {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.menu_song li .bi
+{
+  font-size:22px;
+  position:absolute;
+  right:20px;
+}
+.menu_song li .bi:hover
+{
+  font-size:26px;
+}
+.menu_song li .bi:active
+{
+  opacity:0.85;
+}
+.menu_song li.active-song {
+  background: rgba(31, 78, 15, 0.549);
+  box-shadow: inset 0px 0px 0px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.header
+{
+  color:white;
+  background-color:rgba(95, 94, 98, 0.6);
+  backdrop-filter:blur(10px);
+  position:fixed;
+  top:20px;
+  right:25px;
+  left:370px;
+  height:80px;
+  display: flex;
+  padding-left:25px;
+  padding-right:20px;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0px 0px 50px rgba(56, 52, 71, 0.6);
+  border-radius:100px;
+}
+.homeicon
+{
+  width:25px;
+  object-fit:cover;
+  transition:width 0.02s;
+  position:fixed;
+  cursor:pointer;
+  margin-left:10px;
+}
+.searchicon
+{
+  padding-left:5px;
+  width:35px;
+  height:37px;
+  border-top-left-radius:20px;
+  border-bottom-left-radius:20px;
+  border-width:0.2px;
+  background-color:rgb(200, 199, 199);
+  margin-right:-40px;
+  margin-left:60px;
+}
+.searchicon:hover
+{
+  cursor:pointer;
+}
+.search
+{
+  flex: 1;
+  max-width:600px;
+  width:200px;
+  height:35px;
+  border-top-right-radius:20px;
+  border-bottom-right-radius:20px;
+  border-style:solid;
+  border-width:0.2px;
+  padding-left:15px;
+  margin-left:40px;
+  margin-right:40px;
+  font-size: 20px;
+  box-shadow: inset 0px 0px 20px rgba(0,0,0,0.3);
+}
+.notificationicon
+{
+  width:25px;
+  margin-right:20px;
+  cursor:pointer;
+}
+.premium
+{
+  background-color: rgb(239, 238, 238);
+  width:135px;
+  border:none;
+  height:35px;
+  margin-right:20px;
+  border-radius:25px;
+  flex-shrink:0;
+  transition:opacity 0.08s;
+  cursor:pointer;
+}
+.premium:hover
+{
+  box-shadow:0px 0px 15px rgba(0,0,0,0.7);
+}
+.premium:active
+{
+  opacity:0.9;
+}
+.signup
+{
+  width:90px;
+  height:40px;
+  color:white;
+  border-color:white;
+  border-style:solid;
+  border-width:1px;
+  border-radius:5px;
+  background-color:#2d313a;
+  transition:background-color 0.1s;
+  margin-right:20px;
+  flex-shrink:0;
+  cursor:pointer;
+}
+.signup:hover
+{
+  background-color:white;
+  opacity:0.95;
+  color:black;
+}
+.signup:active
+{
+  opacity:0.8;
+}
+.bottombar
+{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color:rgb(6, 6, 6);
+  bottom:0;
+  width: 100%;
+  left:0;
+  right:0;
+  position:fixed;
+  height:50px;
+  box-shadow:0px 0px 10px rgba(54, 52, 59, 0.6);
+}
+.wave
+{
+  width: 40px;
+  height: 30px;
+  /* border: 1px solid #fff; */
+  padding-top:13px; 
+  padding-left:30px;
+  display: flex; 
+  align-items: flex-end; 
+  margin-right: 10px;
+}
+.wave1
+{
+  width:3px;
+  height: 8px;
+  background:#36e2ec;
+  margin-right:3px;
+  border-radius:10px 10px 0px 0px;
+  animation:wave .5s linear infinite;
+}
+.wave2 {
+  width:3px;
+  height:25px;
+  background:#36e2ec;
+  border-radius:10px 10px 0px 0px;
+  animation: wave 0.5s linear infinite;
+  margin-right:3px;
+  animation-delay: 0.2s;
+}
+
+.wave3 {
+  width:3px;
+  height: 15px;
+  background:#36e2ec;
+  border-radius:10px 10px 0px 0px;
+  margin-right:3px;
+  animation: wave 0.5s linear infinite;
+  animation-delay: 0.4s;
+}
+.wave4 {
+  width:3px;
+  height:3px;
+  background:#36e2ec;
+  border-radius:10px 10px 0px 0px;
+  animation: wave 0.5s linear infinite;
+  margin-right:3px;
+  animation-delay: 0.2s;
+}
+.wave5 {
+  width:3px;
+  height: 10px;
+  background:#36e2ec;
+  border-radius:10px 10px 0px 0px;
+  margin-right:3px;
+  animation: wave 0.5s linear infinite;
+  animation-delay: 0.6s;
+}
+.wave6 {
+  width:3px;
+  height: 17px;
+  background:#36e2ec;
+  border-radius:10px 10px 0px 0px;
+  animation: wave 0.5s linear infinite;
+  animation-delay: 0.2s;
+}
+@keyframes wave{
+  0%{
+    height:3px;
+  }
+  50%{
+    height:25px;
+  }
+  100%{
+    height:10px;
+  }
+}
+.developer
+{
+  margin-right:20px;
+  margin-top:20px;
+}
+.now {
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:16px;
+    padding:28px;
+    box-shadow: 0 8px 30px rgba(1, 11, 59, 0.7);
+    display:flex;
+    gap:22px;
+    align-items:center;
+  }
+
+  .art {
+    width:300px;
+    height:300px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),#2b6be6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:700;
+    font-size:22px;
+    overflow:hidden;
+    flex-shrink:0;
+    margin-top:30px;
+  }
+  .art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .meta {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .title{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing: -0.02em;
+  }
+  .artist{
+    color:var(--muted);
+    font-size:15px;
+    margin-top:6px;
+  }
+
+  .controls{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin-top:10px;
+  }
+  .btn{
+    background:var(--glass);
+    border:0;
+    color:white;
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+  }
+  .btn.big{
+    padding:12px 18px;
+    font-size:18px;
+    border-radius:12px;
+  }
+
+  .progress {
+    margin-top:14px;
+  }
+  .progress-bar{
+    height:10px;
+    background: rgba(255,255,255,0.06);
+    border-radius:8px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+  }
+  .progress-filled{
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:0%;
+    background: linear-gradient(90deg,var(--accent),#2b6be6);
+    transition: width 0.08s linear;
+  }
+  .time {
+    display:flex;
+    justify-content:space-between;
+    color:var(--muted);
+    font-size:13px;
+    margin-top:6px;
+  }
+  .shuffle-control {
+  display: flex;
+  align-items: space-between;
+}
+#shuffleBtn {
+  font-size: 28px;
+  margin-left:15px;
+  margin-top:25px;
+  cursor: pointer;
+  color: var(--muted, #666);
+  transition: color 0.3s ease;
+}
+#shuffleBtn:hover {
+  color:white;
+  font-size: 29px;
+}
+#shuffleBtn.active {
+  color: #1db954; /* Spotify green when active */
+}
+#download-music
+{
+  flex:1;
+  font-size:31px;
+  margin-top:24px;
+  margin-left:30px;
+  color:var(--muted,white);
+}
+#download-music:hover
+{
+  font-size:32px;
+  color:white;
+  cursor:pointer;
+}
+.volume-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-right: 20px;
+  gap:5px;
+}
+#volumeBar {
+  width: 150px;
+  cursor: pointer;
+  height:4px;
+}
+#volIcon {
+  font-size: 30px;
+  color: var(--muted, #666);
+}
+#volIcon:hover{
+  font-size: 31px;
+  color:white;
+  cursor:pointer;
+}
